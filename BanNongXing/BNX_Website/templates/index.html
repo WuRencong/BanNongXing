@@ -1,0 +1,205 @@
+﻿{# 引用通用页面模板 #}
+{% extends 'PageHeadAndTailCommon.html' %}
+{# 加载静态资源库 #}
+{% load staticfiles %}
+
+{# head链接JS文件 #}
+{% block head-js %}
+
+{% endblock %}
+
+{# 链接CSS文件 #}
+{% block css %}
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- 全局默认样式 -->
+    <link rel="stylesheet" href="{% static 'css/WebPageReset.css' %}">
+    <!-- banner大图基础样式 -->
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+    <!-- 页面滚动基础样式 -->
+    <link rel="stylesheet" href="{% static 'css/jquery.fullPage.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{# 页面标题 #}
+{% block PageTitle %}
+    智慧农业
+{% endblock %}
+
+{# 浮动栏 #}
+{% block fixed %}
+
+{% endblock %}
+
+{# 头部栏 #}
+{% block header %}
+
+{% endblock %}
+
+{# 内容栏 #}
+{% block content %}
+    <div id="index_main" class="index_main">
+        <!-- 轮播图 -->
+        <div class="section section1">
+            <div class="index_banner">
+
+                <div class="item">
+                    <div class="items scaleBg" style="background-image: url(../../static/images/Gold_field_wallpaper.jpg);"></div>
+                    <div class="inner">
+                        <div class="block_txt">
+                            <h4> 农业大数据平台</h4>
+                            <h2>智能<span>农业</span>生产</h2>
+                            <h3>
+                                <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+                                    <p>科技让我们更进一步了解农业</p>
+                                </div>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="items scaleBg" style="background-image: url(../../static/images/Grassland.jpg);"></div>
+                    <div class="inner">
+                        <div class="block_txt">
+                            <h4> 绿色发展观</h4>
+                            <h2>精准<span>大数据</span>种植</h2>
+                            <h3>
+                                <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+                                    <p>科学绿化/精准种植 利用大数据提高生产效率</p>
+                                </div>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="items scaleBg" style="background-image: url(../../static/images/Golden_wheat_with_wood_background.jpg);"></div>
+                    <div class="inner">
+                        <div class="block_txt">
+                            <h4> </h4>
+                            <h2><span>可持续</span><br>发展种植规划体系</h2>
+                            <h3>育种  |  种植  |  管理  |  收获</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="items scaleBg" style="background-image: url(../../static/images/banner1.jpg);"></div>
+                    <div class="inner">
+                        <div class="block_txt">
+                            <h4> </h4>
+                            <h2><span>农业生产</span>规划整体解决方案</h2>
+                            <h3>全程支持  |  个性服务</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="items scaleBg" style="background-image: url(../../static/images/Green_wheat_spike.jpg);"></div>
+                    <div class="inner">
+                        <div class="block_txt">
+                            <h4>  </h4>
+                            <h2><span>农业管理</span>发展测评</h2>
+                            <h3>科学量表  |  全面评估  |  种植指导</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="left slick_txt">	<!--左翻页箭头-->
+                <div class="prev slick_arrow"></div>
+            </div>
+            <div class="right slick_txt">	<!--右翻页箭头-->
+                <div class="next slick_arrow"></div>
+            </div>
+
+            <div class="number">	<!--选择图画页数按钮-->
+                <div class="inner clearfix">
+                    <span class="active">01</span>
+                    <span >02</span>
+                    <span >03</span>
+                    <span >04</span>
+                    <span >05</span>
+                </div>
+            </div>
+
+        </div>
+        <!-- 单图加字 -->
+        <div class="section section2">
+            <div class="container">
+                <div class="col-12"><img src="{% static 'images/big_beta.png' %}" class="col-12" alt="" height="600px"></div>
+                <h3 style="margin-top: 30px;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;通过大数据支持、根据用户需求提供精准农业种植方案
+                </h3>
+            </div>
+        </div>
+        <!-- 双图文框 -->
+        <div class="section section3">
+            <div class="container">
+                <h3>网站服务</h3>
+                <div class="clearfix">
+                    <div class="col-md-6 col-12 float-left">
+                        <figure class="figure">
+                            <a href="http://www.nmc.cn/" target="_blank">
+                                <img class="col-12" alt="" src="{% static 'images/Weather_forecast.jfif' %}" height="300px">
+                            </a>
+                            <figcaption class="figure-caption">天气预报</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-md-6 col-12 float-right">
+                        <figure class="figure">
+                            <a href="http://127.0.0.1:8000/website/NewType/2" target="_blank">
+                                <img class="col-12" alt="" src="{% static 'images/ACRT.jfif' %}" height="300px">
+                            </a>
+                            <figcaption class="figure-caption">农业小贴士</figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <h3></h3>
+            </div>
+        </div>
+        <!-- 宣传大图 -->
+        <div class="section section4">
+            <div class="container">
+                <h3>宣传图片</h3>
+                <img src="{% static 'images/company_img.png' %}" alt="" class="col-12" height="500px">
+            </div>
+            <h3></h3>
+        </div>
+        <!-- 页尾 -->
+        <div class="section section5">
+            <div class="M_footer text-center no-gutters row">
+                <div class="container-fluid">
+                    <div class="footer_nav clearfix">
+                        <div class="FN FN_1 col-md-4 col-12 float-left">
+                            <h3><a href="Legal" target="_blank">法律声明</a></h3>
+                        </div>
+                        <div class="FN FN_2 col-md-4 col-12 float-left">
+                            <h3><a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ckBCQUJCQkRLR0MyAwNcER0f" style="text-decoration:none;">举报邮箱</a></h3>
+                        </div>
+                        <div class="FN FN_3 col-md-4 col-12 float-left">
+                            <h3><a href="../admin" target="_blank">网站管理</a></h3>
+                        </div>
+                    </div>
+                    <div class="QR_code">
+                        <h5>官方微信公众号</h5>
+                        <img src="{% static 'images/QR_code.jpg' %}" alt="" width="150px" height="150px">
+                    </div>
+                    <div class="registration">
+                        <p>Copyright © XXXX XXX.com All Rights Reversed. 网站名 赣ICP备XXXXXXXXX号</p>
+                        <p><a href="index" title="网站名" style="text-decoration: none;transition: all 0.3s linear;"><img alt="" src="http://www.clantrip.com/static/images/ghs.png" width="20px" height="20px">赣ICP备XXXXXXXXX号</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{# 尾连接链接JS文件 #}
+{% block foot-js %}
+    <!--这个是一个控制分块滚动的插件-->
+    <script src="{% static 'javascript/jquery.fullPage.min.js' %}"></script>
+    <script src="{% static 'javascript/index.js' %}"></script>
+{% endblock %}

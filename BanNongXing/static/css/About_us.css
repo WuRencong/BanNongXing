@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* CSS Document */
+#about_company{
+	color: rgba(255,255,255,1.00);
+	margin-top: 15px;
+	margin-bottom: 50px;
+}
+#about_company h1{
+	cursor: default;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+#about_company img{
+	border-radius: 5%;
+}
+.Title_introduction, .Company_introduction{
+	cursor: default;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.Contact_introduction{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+
+#about_us{
+	
+}
+#about_us h1{
+	color: rgba(255,255,255,1.00);
+	cursor: default;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+#about_us figure{
+	
+}
+#about_us img{
+	border-radius: 10px;
+	transition: 0.5s;
+}
+#about_us img:hover{
+	border-radius: 50%;
+}
+#about_us figcaption{
+	font-size: 16px;
+	transition: 0.5s;
+	cursor: default;
+}
+#about_us figcaption:hover{
+	color: rgba(255,255,255,1.00);
+}

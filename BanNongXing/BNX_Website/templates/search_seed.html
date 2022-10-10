@@ -1,0 +1,69 @@
+{# 引用通用页面模板 #}
+{% extends 'PageHeadAndTailCommon.html' %}
+{# 加载静态资源库 #}
+{% load staticfiles %}
+
+{# head链接JS文件 #}
+{% block head-js %}
+
+{% endblock %}
+
+{# 链接CSS文件 #}
+{% block css %}
+<link href="{% static 'css/search_seed.css' %}" rel="stylesheet">
+{% endblock %}
+
+{# 页面标题 #}
+{% block PageTitle %}
+作物生长数据
+{% endblock %}
+
+{# 浮动栏 #}
+{% block fixed %}
+
+{% endblock %}
+
+{# 头部栏 #}
+{% block header %}
+
+{% endblock %}
+
+{# 内容栏 #}
+{% block content %}
+<div class="container clearfix main">
+  <div class="model-details-title">
+    {{ seedName }}
+    <form action="{% url 'search' 'seed' %}" method="GET">
+      {% csrf_token %}
+      <div class="search_by_global">
+        <input type="text" placeholder="请输入您需要搜索的内容" name="keyword" required>
+        <button class="search_btn">搜索</button>
+      </div>
+    </form>
+  </div>
+  <!--            此处填入产品列表内容-->
+  <div class="model-details">
+    {% for seed in seedList %}
+    <div class="row seedview">
+      <div class="col-md-3 seedimg">
+        <a href="{% url 'crop_seed_id' seed.id %}" class="thumbnail row-4" role="button">
+          <img src="http://vsi.cau.edu.cn{{ seed.photo }}" alt="种子图片">
+        </a>
+      </div>
+      <div class="col-md-8">
+        <a href="{% url 'crop_seed_id' seed.id %}" class="detail" role="button">
+          <h3>{{ seed.anotherName|truncatechars:"20" }}</h3>
+        </a>
+        <p class="seed_text">{{ seed.Geographic|truncatechars:"149"}}....</p>
+
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
+{# 尾连接链接JS文件 #}
+{% block foot-js %}
+
+{% endblock %}

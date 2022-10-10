@@ -1,0 +1,89 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background: url("../images/world_map.png");
+}
+@media screen and (max-width: 768px) {
+	body{
+		background-size: cover;
+	}
+}
+
+input{
+	border: solid 1px rgba(94,94,94,1.00);
+	background: rgba(255,255,255,1.00);
+	border-radius: 5px;
+}
+input:checked{
+	
+}
+
+label{
+	font-size: 18px;
+}
+label::before{
+	content: attr(my_form_attribute);
+	color: rgba(62,62,62,1.00);
+	transition: 0.5s;
+}
+label::after{
+	content: '';
+	width: 100%;
+	background: rgba(101,249,84,1.00);
+	transition: 0.5s;
+}
+
+#Company_announcement{
+	margin-top: 25px;
+	margin-bottom: 40px;
+}
+
+#Contact{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.company_text{
+	
+}
+.company_text h3{
+	margin: 5px 0px;
+}
+.company_text h2{
+	margin-bottom: 10px;
+	margin-top: 15px;
+}
+.company_text p{
+	margin: 8px 0px;
+}
+.company_text small{
+	font-size: 14px;
+}
+
+.text_message{
+	
+}
+
+.text_box{
+	margin: 15px 0px;
+}
+.text_box input, .text_box textarea{
+	color: rgba(0,163,4,1.00);
+}
+#form_submit{
+	border: solid 1px rgba(94,94,94,0.00);
+	background: rgba(252,113,113,1.00);
+	transition: 0.5s;
+}
+#form_submit:hover{
+	background: rgba(255,0,4,1.00);
+	color: rgba(255,255,255,1.00);
+}
+
+#Contact_address a{
+	color: blue;
+	transition: 0.5s;
+}
+#Contact_address a:hover{
+	color: blueviolet;
+}

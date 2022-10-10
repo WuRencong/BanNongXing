@@ -1,0 +1,67 @@
+{# 引用通用页面模板 #}
+{% extends 'PageHeadAndTailCommon.html' %}
+{# 加载静态资源库 #}
+{% load staticfiles %}
+
+{# head链接JS文件 #}
+{% block head-js %}
+
+{% endblock %}
+
+{# 链接CSS文件 #}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/DataPlanning.css' %}">
+{% endblock %}
+
+{# 页面标题 #}
+{% block PageTitle %}
+智慧农业-方案规划
+{% endblock %}
+
+{# 浮动栏 #}
+{% block fixed %}
+
+{% endblock %}
+
+{# 头部栏 #}
+{% block header %}
+
+{% endblock %}
+
+{# 内容栏 #}
+{% block content %}
+<!--<div class="territory_map_wrap">-->
+
+<!--</div>-->
+
+<div class="analyze_wrap">
+    <p class="territory_detail_wrap">
+        <span class="territory_name">樟树市临江镇</span>
+        土质良好，土壤肥力高，主要以
+        <span class="soil_type territory_name">
+            黄壤土、潮水与潴育性水稻土
+        </span>
+        组成，适合种植
+        <span class="crop_type">水稻、棉花、油菜</span>
+        等多种粮食及经济作物
+    </p>
+    <p class="territory_detail_wrap">下图为<span class="territory_name">樟树市临江镇</span>土壤成分抽样检测图</p>
+    <div class="analyze_by_soil">
+        <div class="analyze_chart" id="plan_chart">
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{# 尾连接链接JS文件 #}
+{% block foot-js %}
+<script type="text/javascript" src="{% static 'echarts/customed.js' %}"></script>
+<!--<script type="module" src="{% static 'javascript/map_utils.js' %}"></script>-->
+<!--<script>-->
+<!--    // 接收view传出的值-->
+<!--    let mapData = '{{ mapData|safe }}'-->
+<!--</script>-->
+<script type="text/javascript" src="{% static 'javascript/planEcharts.js' %}"></script>
+{% endblock %}

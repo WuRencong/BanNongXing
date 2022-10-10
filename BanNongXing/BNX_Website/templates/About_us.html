@@ -1,0 +1,98 @@
+{# 引用通用页面模板 #}
+{% extends 'PageHeadAndTailCommon.html' %}
+{# 加载静态资源库 #}
+{% load staticfiles %}
+
+{# head链接JS文件 #}
+{% block head-js %}
+
+{% endblock %}
+
+{# 链接CSS文件 #}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/About_us.css' %}">
+{% endblock %}
+
+{# 页面标题 #}
+{% block PageTitle %}
+    智慧农业-关于我们
+{% endblock %}
+
+{# 浮动栏 #}
+{% block fixed %}
+
+{% endblock %}
+
+{# 头部栏 #}
+{% block header %}
+
+{% endblock %}
+
+{# 内容栏 #}
+{% block content %}
+    <div class="clearfix container" id="about_company">
+			<h1 class="text-center">公司介绍</h1>
+			<img alt="" class="contain col-12 col-lg-4 float-left company_img" src="{% static 'images/company_img.png' %}">
+			<div class="col-12 col-lg-8 float-right company_text">
+				<div class="col-12 text-center Title_introduction">
+					<h3>禄埠网络科技有限公司</h3>
+				</div>
+				<div class="col-12 Company_introduction Company_introduction">
+					<p>&#12288;公司介绍</p>
+				</div>
+				<div class="clearfix Contact_introduction">
+					<span class="float-left col-6">联系人：吴仁聪</span>
+					<span class="float-left col-6">联系电话：19170928455</span>
+				</div>
+				<div class="clearfix Contact_introduction">
+					<span class="float-left col-6">邮编：330000</span>
+					<span class="float-left col-6">邮箱：wurencong@foxmail.com</span>
+				</div>
+				<div class="clearfix Contact_introduction">
+					<span class="float-left col-12">地址：江西省南昌市青山湖区东华理工大学创业孵化园</span>
+				</div>
+			</div>
+		</div>
+    <div id="about_us" class="container col-12 text-center">
+			<h1>"智慧农业"项目团队介绍</h1>
+			<div class="container figure clearfix">
+				<figure class="col-12 col-lg-6 introduction float-lg-left">
+					<img src="{% static 'images/Team_1.jpg' %}" class="figure-img img-fluid" alt="">
+					<figcaption class="figure-caption">姓名：吴仁聪</figcaption>
+					<figcaption class="figure-caption">联系方式：19170928455</figcaption>
+					<figcaption class="figure-caption">QQ：2865769200</figcaption>
+					<figcaption class="figure-caption">负责范围：网站前端开发与运维，项目负责人</figcaption>
+				</figure>
+
+                <figure class="col-12 col-lg-6 introduction float-lg-left">
+					<img src="{% static 'images/Team_2.jpg' %}" class="figure-img img-fluid" alt="">
+					<figcaption class="figure-caption">姓名：吴家欣</figcaption>
+					<figcaption class="figure-caption">联系方式：15770766609</figcaption>
+					<figcaption class="figure-caption">QQ：2030006951</figcaption>
+					<figcaption class="figure-caption">负责范围：网络爬虫框架开发与运维</figcaption>
+				</figure>
+			</div>
+			<div class="container figure clearfix">
+				<figure class="col-12 col-lg-6 introduction float-lg-left">
+					<img src="{% static 'images/Team_3.jpg' %}" class="figure-img img-fluid" alt="">
+					<figcaption class="figure-caption">姓名：谢揽珏</figcaption>
+					<figcaption class="figure-caption">联系方式：18942326175 </figcaption>
+					<figcaption class="figure-caption">QQ：2506966170 </figcaption>
+					<figcaption class="figure-caption">负责范围：项目开发文案</figcaption>
+				</figure>
+
+				<figure class="col-12 col-lg-6 introduction float-lg-left">
+					<img src="{% static 'images/Project_number_6.jpg' %}" class="figure-img img-fluid" alt="">
+					<figcaption class="figure-caption">姓名：曾韶程</figcaption>
+					<figcaption class="figure-caption">联系方式：19959792983</figcaption>
+					<figcaption class="figure-caption">QQ：1648449524</figcaption>
+					<figcaption class="figure-caption">负责范围：网络爬虫程序开发</figcaption>
+				</figure>
+			</div>
+		</div>
+{% endblock %}
+
+{# 尾连接链接JS文件 #}
+{% block foot-js %}
+    <script type="text/javascript" color="61,247,255" pointColor="255,255,255" opacity='0.85' zIndex="-2" count="175" src="{% static 'javascript/canvas-nest.js' %}"></script>
+{% endblock %}

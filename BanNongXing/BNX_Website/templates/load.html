@@ -1,0 +1,111 @@
+{# 引用通用页面模板 #}
+{% extends 'PageHeadAndTailCommon.html' %}
+{# 加载静态资源库 #}
+{% load staticfiles %}
+
+{# head链接JS文件 #}
+{% block head-js %}
+
+{% endblock %}
+
+{# 链接CSS文件 #}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/load.css' %}">
+{% endblock %}
+
+{# 页面标题 #}
+{% block PageTitle %}
+智慧农业-登陆
+{% endblock %}
+
+{# 浮动栏 #}
+{% block fixed %}
+
+{% endblock %}
+
+{# 头部栏 #}
+{% block header %}
+
+{% endblock %}
+
+{# 内容栏 #}
+{% block content %}
+<div class="load-wrapper">
+    <form autocomplete="off" enctype="multipart/form-data" method="post" class="form">
+        {% csrf_token %}
+        <img src="{% static 'images/User_img.png' %}" alt="">
+        <h2>登陆</h2>
+        <div class="input-group">
+            <input type="text" name="login_User" id="login_User" autocomplete='new-password' required>
+            <label for="login_User">用户名</label>
+        </div>
+        <div class="input-group">
+            <input type="password" name="login_Password" id="login_Password" autocomplete='new-password' required>
+            <label for="login_Password">登陆密码</label>
+        </div>
+        <input type="submit" value="登陆" class="submit-btn col-12">
+        <a href="#forgot-pw1" class="forgot-pw float-left">忘记密码？</a>
+        <a href="#forgot-pw2" class="forgot-pw float-right">注册账号</a>
+    </form>
+
+    <div id="forgot-pw1">
+        <form autocomplete="off" enctype="multipart/form-data" method="post" class="form">
+            {% csrf_token %}
+            <a href="javascript:void(0)" class="close">&times;</a>
+            <h2>重设密码</h2>
+            <div class="input-group">
+                <input type="text" name="reset_user" id="reset_user" autocomplete='new-password' required>
+                <label for="reset_user">账户</label>
+            </div>
+            <div class="input-group">
+                <input type="email" name="reset_email" id="reset_email" autocomplete='new-password' required>
+                <label for="reset_email">邮箱</label>
+            </div>
+            <div class="input-group">
+                <input type="password" name="reset_password" id="reset_password" autocomplete='new-password' required>
+                <label for="reset_password">重设密码</label>
+            </div>
+            <div class="input-group">
+                <input type="password" name="reset_password_again" id="reset_password_again" autocomplete='new-password'
+                    required>
+                <label for="reset_password_again">再次输入密码</label>
+            </div>
+            <input type="submit" value="提交" class="submit-btn">
+        </form>
+    </div>
+
+    <div id="forgot-pw2">
+        <form autocomplete="off" enctype="multipart/form-data" method="post" class="form">
+            {% csrf_token %}
+            <a href="#" class="close">&times;</a>
+            <h2>注册</h2>
+            <div class="input-group">
+                <input type="text" name="registered_user" id="registered_user" autocomplete='new-password' required>
+                <label for="registered_user">用户名</label>
+            </div>
+            <div class="input-group">
+                <input type="password" name="registered_Password" id="registered_Password" autocomplete='new-password'
+                    required>
+                <label for="registered_Password">密码</label>
+            </div>
+            <div class="input-group">
+                <input type="email" name="registered_Email" id="registered_Email" autocomplete='new-password' required>
+                <label for="registered_Email">邮箱</label>
+            </div>
+            <input type="submit" value="提交" class="submit-btn">
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{# 尾连接链接JS文件 #}
+{% block foot-js %}
+<script>
+    let close = document.querySelector('.close')
+    let fm1 = document.querySelector('#forgot-pw1')
+    close.onclick = function () {
+        fm1.style.opacity = 0
+        console.log(1);
+    }
+</script>
+{% endblock %}

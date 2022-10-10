@@ -1,0 +1,18 @@
+.soilDetail_table_wrap table {
+  width: 100%;
+}
+
+.soilDetail_table_wrap .head {
+  width: 10%;
+}
+
+.soilDetail_table_wrap .content {
+  width: 85%;
+  text-indent: 0.55rem;
+}
+
+.subclass_table .matrix {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

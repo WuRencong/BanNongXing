@@ -1,0 +1,95 @@
+{# 引用通用页面模板 #}
+{% extends 'PageHeadAndTailCommon.html' %}
+{# 加载静态资源库 #}
+{% load staticfiles %}
+
+{# head链接JS文件 #}
+{% block head-js %}
+
+{% endblock %}
+
+{# 链接CSS文件 #}
+{% block css %}
+<link href="{% static 'css/soilDetail.css' %}" rel="stylesheet">
+<link href="{% static 'css/SoilSubclass.css' %}" rel="stylesheet">
+{% endblock %}
+
+{# 页面标题 #}
+{% block PageTitle %}
+作物生长数据
+{% endblock %}
+
+{# 浮动栏 #}
+{% block fixed %}
+
+{% endblock %}
+
+{# 头部栏 #}
+{% block header %}
+
+{% endblock %}
+
+{# 内容栏 #}
+{% block content %}
+<div class="container soil_detail">
+    <div class="row soil_detail_title">
+        <div class="title">
+            <span class="glyphicon glyphicon-align-left"></span>
+            <span>详细信息</span>
+        </div>
+    </div>
+    <div class="soilDetail_table_wrap">
+        <table>
+            <tbody>
+                <tr>
+                    <td class="head">亚类名称</td>
+                    <td class="content">{{subClassName}}</td>
+                </tr>
+                <tr>
+                    <td class="head">亚类英文名</td>
+                    <td class="content">{{subClassEngName}}</td>
+                </tr>
+                <tr>
+                    <td class="head">亚类国标名</td>
+                    <td class="content">{{subClassNatName}}</td>
+                </tr>
+                <tr>
+                    <td class="head">土种信息</td>
+                    <td class="subclass_wrap">
+                        <table class="subclass_table">
+                            <thead>
+                                <tr class="subclass_head">
+                                    <th>土种名称</th>
+                                    <th>母质</th>
+                                    <th>土地利用</th>
+                                    <th>详细</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for soilseed in currentsoilseeds %}
+                                <tr>
+                                    <td class="subclass_name">{{soilseed.soilSeedName}}</td>
+                                    <td class="matrix">
+                                        {{soilseed.soilSeedDescript|truncatechars:"25"}}...
+                                    </td>
+                                    <td class="land_used">{{soilseed.landUse}}</td>
+                                    <td class="detail"><a href="{% url 'soil_seed_id' soilseed.id %}">
+                                            查看
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{# 尾连接链接JS文件 #}
+{% block foot-js %}
+
+{% endblock %}

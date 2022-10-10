@@ -1,0 +1,203 @@
+<!doctype html>
+{% load staticfiles %}
+
+{# 引入CSS #}
+<link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'css/WebPageReset.css' %}"> {# 全局基础样式重置 #}
+<link rel="stylesheet" href="{% static 'css/WebCustomFramework.css' %}"> {# CSS模板样式 #}
+<link rel="stylesheet" href="{% static 'css/WebCurrencyAnimation.css' %}"> {# 动画样式 #}
+<link rel="stylesheet" href="{% static 'css/WebNav.css' %}"> {# 导航栏样式 #}
+{% block css %}{% endblock %}
+
+{# 引入JS #}
+<script type="text/javascript" src="{% static 'jquery/dist/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'echarts/echarts.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'popper/dist/popper.js' %}"></script>
+<script type="text/javascript" src="{% static 'popper/dist/esm/popper.js' %}"></script>
+<script type="text/javascript" src="{% static 'popper/dist/umd/popper.js' %}"></script>
+<script type="text/javascript" src="{% static 'bootstrap/dist/js/bootstrap.js' %}"></script>
+{% block head-js %}{% endblock %}
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>{% block PageTitle %}{% endblock %}</title>
+</head>
+
+<body>
+	{# 浮动栏 #}
+	{% block fixed %}{% endblock %}
+
+	{# PC端导航栏 #}
+	<nav class="header on">
+		<div class="clearfix container">
+			<div class="fr nav">
+				<ul class="navbar_nav" data-in="fadeInDown" data-out="fadeOutUp">
+					<img alt="项目Logo" src="{% static 'images/ico-1.jpg' %}" width="auto" height="48px">
+					<a href="login" class="pc_load"><input type="button" style="height: 50px;" value="登 陆"></a>
+
+					<li class="active">
+						<a href="http://127.0.0.1:8000/website/index">网页首页</a>
+					</li>
+
+					<li class="dropdown">
+						<a href="http://127.0.0.1:8000/website/ProductCenter">产品服务</a>
+						<div class="dropdown_menu">
+							<a href="http://www.nmc.cn/publish/agro/soil-moisture-monitoring-10cm.html">农业气候状况</a>
+							<a href="http://127.0.0.1:8000/website/DataPlan">农业生产规划方案</a>
+							<a href="{% url 'crop_type' 'seed' %}">作物生长数据</a>
+							<a href="{% url 'new_type_tem' 2 %}">农业种植技术</a>
+							<a href="{% url 'new_type_tem' 2 %}">畜牧水产养殖技术</a>
+						</div>
+					</li>
+
+					<li class="dropdown">
+						<a href="http://127.0.0.1:8000/website/action_news">新闻快报</a>
+						<div class="dropdown_menu">
+							<a href="{% url 'new_type_tem' 1 %}">农业快报</a>
+							<a href="{% url 'new_type_tem' 2 %}">农业小贴士</a>
+							<a href="{% url 'new_type_tem' 3 %}">农业政策</a>
+							<a href="{% url 'new_type_tem' 4 %}">其他新闻</a>
+						</div>
+					</li>
+
+					<li>
+						<a href="http://127.0.0.1:8000/website/Information">信息反馈</a>
+					</li>
+
+					<li>
+						<a href="http://127.0.0.1:8000/website/about_us">关于我们</a>
+					</li>
+
+					<li>
+						<a href="http://127.0.0.1:8000/website/Liaison">联系合作</a>
+					</li>
+				</ul>
+			</div>
+			<a id="navToggle">
+				<span></span>
+			</a>
+		</div>
+	</nav>
+	{# 移动端导航栏 #}
+	<div class="m_nav">
+		<div class="top clearfix">
+			<img src="{% static 'images/closed.png' %}" alt="" class="closed">
+		</div>
+		<div class="logo">
+			<img src="#" alt="">
+		</div>
+		<ul class="ul" data-in="fadeInDown" data-out="fadeOutUp">
+			<li class="active">
+				<a href="index">网页首页</a>
+			</li>
+
+			<li class="dropdown">
+				<a>产品服务列表</a>
+				<div class="dropdown_menu">
+					<a href="ProductCenter">产品服务</a>
+					<a href="http://www.nmc.cn/publish/agro/soil-moisture-monitoring-10cm.html">农业气候状况</a>
+					<a href="http://127.0.0.1:8000/website/DataPlan">农业生产规划方案</a>
+					<a href="{% url 'crop_type' 'seed' %}">作物生长数据</a>
+					<a href="{% url 'new_type_tem' 2 %}">农业种植技术</a>
+					<a href="{% url 'new_type_tem' 2 %}">畜牧水产养殖技术</a>
+				</div>
+			</li>
+
+			<li class="dropdown">
+				<a>新闻快报列表</a>
+				<div class="dropdown_menu">
+					<a href="action_news">新闻快报</a>
+					<a href="{% url 'new_type_tem' 1 %}">农业快报</a>
+					<a href="{% url 'new_type_tem' 2 %}">农业小贴士</a>
+					<a href="{% url 'new_type_tem' 3 %}">农业政策</a>
+					<a href="{% url 'new_type_tem' 4 %}">其他新闻</a>
+				</div>
+			</li>
+
+			<li>
+				<a href="Information">信息反馈</a>
+			</li>
+
+			<li>
+				<a href="about_us">关于我们</a>
+			</li>
+
+			<li>
+				<a href="Liaison">联系合作</a>
+			</li>
+
+			<li>
+				<a href="login">账号登陆</a>
+			</li>
+		</ul>
+	</div>
+	<!--防止导航栏阻挡页面内容的内联元素（块级元素不好控制高度）-->
+	<span class="Page_empty_block"></span>
+
+	{# 头部栏 #}
+	{% block header %}{% endblock %}
+
+	{# 内容栏 #}
+	{% block content %}{% endblock %}
+
+	{# 尾部栏 #}
+	<footer class="container-fluid text-center no-gutters row m_footer" style="background: rgba(51,51,51,1.00)">
+		<div class="container">
+			<div class="row">
+				<div class="col-4">
+					<h4>快速链接</h4>
+				</div>
+				<div class="col-4">
+					<h4>微信公众号</h4>
+				</div>
+				<div class="col-4">
+					<h4>联系方式</h4>
+				</div>
+			</div>
+			<hr style="background: rgba(255,255,255,1.00)">
+			<div class="row">
+				<div class="col-4 footer-item">
+					<li><a href="javascript:void(0);" onclick="AddFavorite('伴侬行','http://www.bannongxing.com')">收藏本站</a></li>
+					<li><a href="Legal" target="_blank">法律声明</a></li>
+					<li><a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ckBCQUJCQkRLR0MyAwNcER0f"
+							style="text-decoration:none;">举报邮箱</a></li>
+				</div>
+				<div class="col-4">
+					<img alt="" src="{% static 'images/QR_code.jpg' %}" width="130px" height="130px" id="qr_code">
+				</div>
+				<div class="col-4 text-left clearfix">
+					<img alt="" src="{% static 'images/telephone.png' %}" width="30px" height="30px" class="float-left">
+					<li>
+						<h5>&emsp;电话：19170928455</h5>
+					</li>
+					<img alt="" src="{% static 'images/qq.png' %}" width="30px" height="30px" class="float-left">
+					<li>
+						<h5>&emsp;QQ：2030006951</h5>
+					</li>
+					<img alt="" src="{% static 'images/e_mail.png' %}" width="30px" height="30px" class="float-left">
+					<li>
+						<h5>&emsp;邮箱：wurencong@foxmail.com</h5>
+					</li>
+				</div>
+			</div>
+			<hr style="background: rgba(255,255,255,1.00)">
+			<div>
+				<p>Copyright © XXXX XXX.com All Rights Reversed. 网站名 赣ICP备XXXXXXXXX号</p>
+				<p><a href="index" class="web_authentication" title="网站名"><img alt=""
+							src="http://www.clantrip.com/static/images/ghs.png" width="20px" height="20px">赣ICP备XXXXXXXXX号</a></p>
+			</div>
+		</div>
+	</footer>
+
+	{# 尾连接JS脚本 #}
+	<script type="text/javascript" src="{% static 'javascript/slick.js' %}"></script> {# 页面效果（如轮播图，按块滚动等）的JS脚本 #}
+	<script type="text/javascript" src="{% static 'javascript/WebPageUniversalJS.js' %}"></script> {# 自定义页面通用JS脚本 #}
+	<script type="text/javascript" src="{% static 'javascript/BrowserDetection.js' %}"></script> {# 浏览器监控JS脚本 #}
+	{% block foot-js %}{% endblock %}
+</body>
+
+</html>

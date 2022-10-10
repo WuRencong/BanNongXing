@@ -1,0 +1,171 @@
+@charset "utf-8";
+
+/* 加载优先度简介： 1 为最高，应该最先被加载 */
+/* 这个CSS样式文件是通用样件哦，通用样式文件要放在所有自定义样式文件之前哦(加载优先度：1) */
+
+/*抖动动画样式*/
+@keyframes Small_Jitter_X{
+	0%   {	transform: translate(0px,0px);	}
+	25%  {	transform: translate(15px,0px);	}
+	50%  {	transform: translate(0px,0px);	}
+	75%  {	transform: translate(-15px,0px);}
+	100% {	transform: translate(0px,0px);	}
+}
+@keyframes Small_Jitter_Y{
+	0%   {	transform: translate(0px,0px);	}
+	25%  {	transform: translate(0px,15px);	}
+	50%  {	transform: translate(0px,0px);	}
+	75%  {	transform: translate(0px,-15px);}
+	100% {	transform: translate(0px,0px);	}
+}
+@keyframes Medium_Jitter_X{
+	0%   {	transform: translate(0px,0px);	}
+	25%  {	transform: translate(30px,0px);	}
+	50%  {	transform: translate(0px,0px);	}
+	75%  {	transform: translate(-30px,0px);}
+	100% {	transform: translate(0px,0px);	}
+}
+@keyframes Medium_Jitter_Y{
+	0%   {	transform: translate(0px,0px);	}
+	25%  {	transform: translate(0px,30px);	}
+	50%  {	transform: translate(0px,0px);	}
+	75%  {	transform: translate(0px,-30px);}
+	100% {	transform: translate(0px,0px);	}
+}
+@keyframes Big_Jitter_X{
+	0%   {	transform: translate(0px,0px);	}
+	25%  {	transform: translate(45px,0px);	}
+	50%  {	transform: translate(0px,0px);	}
+	75%  {	transform: translate(-45px,0px);}
+	100% {	transform: translate(0px,0px);	}
+}
+@keyframes Big_Jitter_Y{
+	0%   {	transform: translate(0px,0px);	}
+	25%  {	transform: translate(0px,45px);	}
+	50%  {	transform: translate(0px,0px);	}
+	75%  {	transform: translate(0px,-45px);}
+	100% {	transform: translate(0px,0px);	}
+}
+
+/*2D摇摆与旋转动画样式*/
+@keyframes Swing_15deg_2D{
+	0%   {	transform: rotate(0deg);		}
+	25%  {	transform: rotate(15deg);		}
+	50%  {	transform: rotate(0deg);		}
+	75%  {	transform: rotate(-15deg);		}
+	100% {	transform: rotate(0deg);		}
+}
+@keyframes Swing_30deg_2D{
+	0%   {	transform: rotate(0deg);		}
+	25%  {	transform: rotate(30deg);		}
+	50%  {	transform: rotate(0deg);		}
+	75%  {	transform: rotate(-30deg);		}
+	100% {	transform: rotate(0deg);		}
+}
+@keyframes Swing_45deg_2D{
+	0%   {	transform: rotate(0deg);		}
+	25%  {	transform: rotate(45deg);		}
+	50%  {	transform: rotate(0deg);		}
+	75%  {	transform: rotate(-45deg);		}
+	100% {	transform: rotate(0deg);		}
+}
+@keyframes Swing_60deg_2D{
+	0%   {	transform: rotate(0deg);		}
+	25%  {	transform: rotate(60deg);		}
+	50%  {	transform: rotate(0deg);		}
+	75%  {	transform: rotate(-60deg);		}
+	100% {	transform: rotate(0deg);		}
+}
+@keyframes Swing_75deg_2D{
+	0%   {	transform: rotate(0deg);		}
+	25%  {	transform: rotate(75deg);		}
+	50%  {	transform: rotate(0deg);		}
+	75%  {	transform: rotate(-75deg);		}
+	100% {	transform: rotate(0deg);		}
+}
+@keyframes Swing_90deg_2D{
+	0%   {	transform: rotate(0deg);		}
+	25%  {	transform: rotate(90deg);		}
+	50%  {	transform: rotate(0deg);		}
+	75%  {	transform: rotate(-90deg);		}
+	100% {	transform: rotate(0deg);		}
+}
+@keyframes Swing_105deg_2D{
+	0%   {	transform: rotate(0deg);		}
+	25%  {	transform: rotate(105deg);		}
+	50%  {	transform: rotate(0deg);		}
+	75%  {	transform: rotate(-105deg);		}
+	100% {	transform: rotate(0deg);		}
+}
+@keyframes Swing_120deg_2D{
+	0%   {	transform: rotate(0deg);		}
+	25%  {	transform: rotate(120deg);		}
+	50%  {	transform: rotate(0deg);		}
+	75%  {	transform: rotate(-120deg);		}
+	100% {	transform: rotate(0deg);		}
+}
+@keyframes Swing_135deg_2D{
+	0%   {	transform: rotate(0deg);		}
+	25%  {	transform: rotate(135deg);		}
+	50%  {	transform: rotate(0deg);		}
+	75%  {	transform: rotate(-135deg);		}
+	100% {	transform: rotate(0deg);		}
+}
+@keyframes Swing_150deg_2D{
+	0%   {	transform: rotate(0deg);		}
+	25%  {	transform: rotate(150deg);		}
+	50%  {	transform: rotate(0deg);		}
+	75%  {	transform: rotate(-150deg);		}
+	100% {	transform: rotate(0deg);		}
+}
+@keyframes Swing_165deg_2D{
+	0%   {	transform: rotate(0deg);		}
+	25%  {	transform: rotate(165deg);		}
+	50%  {	transform: rotate(0deg);		}
+	75%  {	transform: rotate(-165deg);		}
+	100% {	transform: rotate(0deg);		}
+}
+@keyframes Swing_180deg_2D{
+	0%   {	transform: rotate(0deg);		}
+	25%  {	transform: rotate(180deg);		}
+	50%  {	transform: rotate(0deg);		}
+	75%  {	transform: rotate(-180deg);		}
+	100% {	transform: rotate(0deg);		}
+}
+@keyframes Rotation_Clockwise_2D{
+	0%	 {	transform: rotate(0deg);		}
+	25%  {	transform: rotate(90deg);		}
+	50%  {	transform: rotate(180deg);		}
+	75%  {	transform: rotate(270deg);		}
+	100% {	transform: rotate(360deg);		}
+}
+@keyframes Rotation_AntiClockwise_2D{
+	0%	 {	transform: rotate(0deg);		}
+	25%  {	transform: rotate(-90deg);		}
+	50%  {	transform: rotate(-180deg);		}
+	75%  {	transform: rotate(-270deg);		}
+	100% {	transform: rotate(-360deg);		}
+}
+/*XX动画样式*/
+
+/*XX动画样式*/
+
+/*XX动画样式*/
+
+/*XX动画样式*/
+
+/*XX动画样式*/
+
+/*XX动画样式*/
+
+/*XX动画样式*/
+
+/*XX动画样式*/
+
+/*XX动画样式*/
+
+/*空白动画样式（用来与JS代码配合）*/
+@keyframes Blank{
+	from{	transform: translate(0px,0px);	}
+	to  {	transform: translate(0px,0px);	}
+}

@@ -1,0 +1,122 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* 通用元素样式 */
+body{
+	background: url("../images/white_background2.png");
+}
+/* Fixed元素样式 */
+
+
+/* 主体元素样式 */
+
+#grid li{
+	display: inline;
+}
+
+#title{
+	margin-bottom: 15px;
+}
+
+.LN{
+	padding: 15px;
+}
+.LN a{
+	width: 100%;
+	height: 100%;
+}
+.LN-1 .LN-container{
+	background: url("../images/green2.png");
+	background-size: cover;
+}
+.LN-2 .LN-container{
+	background: url("../images/green4.png");
+	background-size: cover;
+}
+.LN-3 .LN-container{
+	background: url("../images/blue3.png");
+	background-size: cover;
+}
+.LN-4 .LN-container{
+	background: url("../images/blue5.jpg");
+	background-size: cover;
+}
+.LN-5 .LN-container{
+	background: url("../images/blue.png");
+	background-size: cover;
+}
+.LN-1:hover img{
+	content: url("../images/weather_yellow.png");
+}
+.LN-2:hover img{
+	content: url("../images/form_deepen.png");
+}
+.LN-3:hover img{
+	content: url("../images/seed_green.png");
+}
+.LN-4:hover img{
+	content: url("../images/technology_green.png");
+}
+.LN-5:hover img{
+	content: url("../images/husbandry_brown.png");
+}
+@media screen and (max-width: 993px){
+	.LN-1 img{
+		content: url("../images/weather_yellow.png");
+	}
+	.LN-2 img{
+		content: url("../images/form_deepen.png");
+	}
+	.LN-3 img{
+		content: url("../images/seed_green.png");
+	}
+	.LN-4 img{
+		content: url("../images/technology_green.png");
+	}
+	.LN-5 img{
+		content: url("../images/husbandry_brown.png");
+	}
+}
+.LN-container{
+	border-radius: 15px;
+	transition: all 500ms ease;
+}
+.LN-container img{
+	margin-top: 15px;
+}
+.LN-container figcaption{
+	font-size: 16px;
+	color: rgba(163,163,163,1.00);
+	transition: all 500ms ease;
+}
+.LN-container:hover figcaption{
+	color: rgba(73,73,73,1.00);
+	transition: all 500ms ease;
+}
+.LN_mouse_on{
+	border-radius: 50%;
+}
+
+
+/*这个是实现假渐变切换的*/
+li img{
+	opacity: 0.4;
+	transition: all 800ms ease;
+}
+li:hover img{
+	opacity: 1;
+	transition: all 800ms ease;
+}
+@media screen and (max-width: 993px){
+	li img{
+		opacity: 1;
+	}
+}
+
+
+@media screen and (max-width: 768px){
+	#qr_code{
+		width: 100px;
+		height: 100px;
+	}
+}

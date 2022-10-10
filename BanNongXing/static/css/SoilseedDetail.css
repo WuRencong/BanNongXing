@@ -1,0 +1,9 @@
+.soilDetail_table_wrap .head {
+  width: 13%;
+}
+
+.soilDetail_table_wrap .content {
+  width: 85%;
+  padding: 10px;
+  text-indent: 0.55rem;
+}

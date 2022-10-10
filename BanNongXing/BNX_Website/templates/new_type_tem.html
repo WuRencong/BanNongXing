@@ -1,0 +1,117 @@
+{# 引用通用页面模板 #}
+{% extends 'PageHeadAndTailCommon.html' %}
+{# 加载静态资源库 #}
+{% load staticfiles %}
+
+{# head链接JS文件 #}
+{% block head-js %}
+
+{% endblock %}
+
+{# 链接CSS文件 #}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/new_type_tem.css' %}">
+{% endblock %}
+
+{# 页面标题 #}
+{% block PageTitle %}
+智慧农业-农业快报
+{% endblock %}
+
+{# 浮动栏 #}
+{% block fixed %}
+
+{% endblock %}
+
+{# 头部栏 #}
+{% block header %}
+
+{% endblock %}
+
+{# 内容栏 #}
+{% block content %}
+<div class="container clearfix" id="Total_box">
+    <div class="col-md-9 col-12 float-left" id="Core_box">
+        <h2 class="text-left">{{ new_type.type_name }}</h2>
+        <hr>
+        {% for new in page_of_news.object_list %}
+        <div class="col-12 core_main_news">
+            {% if new.image == '' %}
+            <div class="core_news_img_box" style="border-top: solid 1px rgba(51,51,51,0.25);"></div>
+            {% else %}
+            <div class="core_news_img_box">
+                <a href="{% url 'new_tem' new.pk %}"><img alt="" src="../../static/images/{{ new.image }}"
+                        class="col-12"></a>
+            </div>
+            {% endif %}
+
+            <div class="core_news_post_box clearfix">
+                <span class="core_news_post_time_box float_left">
+                    <img class="core_news_post_time_ico" alt="" src="{% static 'images/time.png' %}" width="20px"
+                        height="20px">
+                    <span class="core_news_post_time_text">{{ new.created_time }}</span>
+                </span>
+                <span class="core_news_post_click_box float_left">
+                    <img class="core_news_post_click_ico" alt="" src="{% static 'images/click.png' %}" width="20px"
+                        height="20px">
+                    <span class="core_news_post_click_text">{{ new.hits }}</span>
+                </span>
+            </div>
+            <div class="core_news_text_box text-left">
+                <h5>{{ new.title }}</h5>
+                <p>{{ new.content | linebreaksbr | truncatechars:80 }}...</p>
+            </div>
+            <div class="core_news_button_box">
+                <a href="{% url 'new_tem' new.pk %}" class="text-center">点击查看</a>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="Toggle_pages_box text-center">
+            {% if page_of_news.has_previous %}
+            <a href="?page={{ page_of_news.previous_page_number }}">&#60;</a>
+            {% else %}
+            <a>&#60;</a>
+            {% endif %}
+
+            {% for page_num in current_page_range %}
+            {% if page_num == page_of_news.number %}
+            <a class="m_active">{{ page_num }}</a>
+            {% else %}
+            {% if page_num == '...' %}
+            <a>{{ page_num }}</a>
+            {% else %}
+            <a href="?page={{ page_num }}">{{ page_num }}</a>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+
+            {% if page_of_news.has_next %}
+            <a href="?page={{ page_of_news.next_page_number }}">&#62;</a>
+            {% else %}
+            <a>&#62;</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-12 float-right" id="Side_box">
+        <h3>相关热点</h3>
+        {% for new in new_list %}
+        {% if new.image != '' and forloop.counter <= 6 %} <div class="col-12 side_news">
+            <div class="side_news_img_box">
+                <a href="{% url 'new_tem' new.pk %}"><img alt="" src="../../static/images/{{ new.image }}"
+                        class="col-12"></a>
+            </div>
+            <div class="side_news_text_box">
+                <p><a href="{% url 'new_tem' new.pk %}">{{ new.title }}</a></p>
+            </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+</div>
+{% endblock %}
+
+{# 尾连接链接JS文件 #}
+{% block foot-js %}
+<script src="{% static 'javascript/Link_dots.js' %}"></script>
+{% endblock %}

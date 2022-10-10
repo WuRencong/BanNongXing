@@ -1,0 +1,134 @@
+{# 引用通用页面模板 #}
+{% extends 'PageHeadAndTailCommon.html' %}
+{# 加载静态资源库 #}
+{% load staticfiles %}
+
+{# head链接JS文件 #}
+{% block head-js %}
+
+{% endblock %}
+
+{# 链接CSS文件 #}
+{% block css %}
+<link href="{% static 'css/seeds.css' %}" rel="stylesheet">
+{% endblock %}
+
+{# 页面标题 #}
+{% block PageTitle %}
+作物生长数据
+{% endblock %}
+
+{# 浮动栏 #}
+{% block fixed %}
+
+{% endblock %}
+
+{# 头部栏 #}
+{% block header %}
+
+{% endblock %}
+
+{# 内容栏 #}
+{% block content %}
+<!--主题内容-->
+<div class="container clearfix main">
+    <!--        侧边导航栏-->
+    <div class="col-md-3" style="float:left">
+        <div class="model-title">
+            作物生长数据
+        </div>
+        <div class="model-list">
+            <ul class="list-group">
+                <li class="list-group-item active" id="seed">
+                    <a href="{% url 'crop_type' 'seed' %}" class="active">种子信息</a>
+                </li>
+                <li class="list-group-item" id="soil">
+                    <a href="{% url 'crop_type' 'soil' %}">土壤信息</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--        说明文字和图片-->
+    <div class="col-md-9" style="float:left">
+        <div class="model-details-title">
+            <span class="type_title">种子信息</span>
+            <form action="{% url 'search' 'seed' %}" method="GET">
+                {% csrf_token %}
+                <div class="search_by_global">
+                    <input type="text" placeholder="请输入您需要搜索的内容" name="keyword" required>
+                    <button class="search_btn">搜索</button>
+                </div>
+            </form>
+        </div>
+        <!--            此处填入产品列表内容-->
+        <div class="model-details">
+            {% for seed in seedList %}
+            <div class="row seedview">
+                <div class="col-md-4 seedimg">
+                    <a href="{% url 'crop_seed_id' seed.id %}" class="thumbnail row-4" role="button">
+                        <img src="http://vsi.cau.edu.cn{{ seed.photo }}" alt="种子图片">
+                    </a>
+                </div>
+                <div class="col-md-8 seedinfo">
+                    <a href="{% url 'crop_seed_id' seed.id %}" class="title" role="button">
+                        <h3>{{ seed.anotherName|truncatechars:"20" }}</h3>
+                    </a>
+                    <p class="seed_text">{{ seed.Geographic|truncatechars:"149"}}....</p>
+                    <div class="caption">
+                        <a href="{% url 'crop_seed_id' seed.id %}" class="detail" role="button">
+                            查看详情
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% if pageData %}
+            <div class="paging">
+                <ul id="pages" class="pagination-self pagination-sm pagination=xs">
+                    {% if pageData.back %}
+                    <li><a href="?page={{pageData.backPage}}">上一页</a></li>
+                    {% endif %}
+                    {% if pageData.first %}
+                    <li><a href="?page=1">1</a> </li>
+                    {% endif %}
+                    {% if pageData.left %}
+                    {% if pageData.left_has_more %}
+                    <li><span>...</span></li>
+                    {% endif %}
+                    {% for i in pageData.left %}
+                    <li><a href="?page={{i}}">{{i}}</a> </li>
+                    {% endfor %}
+                    {% endif %}
+                    <li class="active"><a href="?page={{pageData.page}}">
+                            {{pageData.page}}
+                        </a> </li>
+                    {% if pageData.right %}
+                    {% for i in pageData.right %}
+                    <li><a href="?page={{i}}">{{i}}</a> </li>
+                    {% endfor %}
+                    {% if pageData.right_has_more %}
+                    <li><span>...</span></li>
+                    {% endif %}
+                    {% endif %}
+                    {% if pageData.last %}
+                    <li><a href="?page={{pageData.total_pages}}">
+                            {{pageData.total_pages}}
+                        </a> </li>
+                    {% endif %}
+                    {% if pageData.next %}
+                    <li><a href="?page={{pageData.nextPage}}">下一页</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{# 尾连接链接JS文件 #}
+{% block foot-js %}
+
+{% endblock %}

@@ -1,0 +1,106 @@
+{# 引用通用页面模板 #}
+{% extends 'PageHeadAndTailCommon.html' %}
+{# 加载静态资源库 #}
+{% load staticfiles %}
+
+{# head链接JS文件 #}
+{% block head-js %}
+
+{% endblock %}
+
+{# 链接CSS文件 #}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/ProductCenter.css' %}">
+{% endblock %}
+
+{# 页面标题 #}
+{% block PageTitle %}
+    智慧农业-产品服务
+{% endblock %}
+
+{# 浮动栏 #}
+{% block fixed %}
+
+{% endblock %}
+
+{# 头部栏 #}
+{% block header %}
+
+{% endblock %}
+
+{# 内容栏 #}
+{% block content %}
+    <div class="container-fluid no-gutters row" id="grid" style="padding: 15px;">
+			<ul class="container clearfix text-center">
+				<h1 id="title">请选择服务种类</h1>
+				<li class="row no-gutters text-center col-sm-4 col-12 float-left LN LN-1">
+					<div class="LN-container">
+						<a href="http://www.nmc.cn/publish/agro/soil-moisture-monitoring-10cm.html" target="_blank">
+							<figure class="figure">
+								<img src="{% static 'images/weather.png' %}" class="figure-img img-fluid rounded" alt="img">
+								<figcaption class="figure-caption">
+									农业气候状况
+								</figcaption>
+							</figure>
+						</a>
+					</div>
+				</li>
+				<li class="row no-gutters text-center col-sm-4 col-12 float-left LN LN-2">
+					<div class="LN-container">
+						<a href="DataPlan" target="_blank">
+							<figure class="figure">
+								<img src="{% static 'images/form.png' %}" class="figure-img img-fluid rounded" alt="img">
+								<figcaption class="figure-caption">
+									农业生产规划方案
+								</figcaption>
+							</figure>
+						</a>
+					</div>
+				</li>
+				<li class="row no-gutters text-center col-sm-4 col-12 float-left LN LN-3">
+					<div class="LN-container">
+						<a href="{% url 'crop_type' 'seed' %}" target="_blank">
+							<figure class="figure">
+								<img src="{% static 'images/seed.png' %}" class="figure-img img-fluid rounded" alt="img">
+								<figcaption class="figure-caption">
+									作物生长数据
+								</figcaption>
+							</figure>
+						</a>
+					</div>
+				</li><br>
+
+				<li class="row no-gutters text-center col-sm-6 col-12 float-left LN LN-4">
+					<div class="LN-container">
+						<a href="{% url 'new_type_tem' 2 %}" target="_blank">
+							<figure class="figure">
+								<img src="{% static 'images/technology.png' %}" class="figure-img img-fluid rounded" alt="img">
+								<figcaption class="figure-caption">
+									农业种植技术
+								</figcaption>
+							</figure>
+						</a>
+					</div>
+				</li>
+				<li class="row no-gutters text-center col-sm-6 col-12 float-left LN LN-5">
+					<div class="LN-container">
+						<a href="{% url 'new_type_tem' 2 %}" target="_blank">
+							<figure class="figure">
+								<img src="{% static 'images/husbandry.png' %}" class="figure-img img-fluid rounded" alt="img">
+								<figcaption class="figure-caption">
+									畜牧水产养殖技术
+								</figcaption>
+							</figure>
+						</a>
+					</div>
+				</li><br>
+			</ul>
+		</div>
+    <br>
+{% endblock %}
+
+{# 尾连接链接JS文件 #}
+{% block foot-js %}
+    <script src="{% static 'javascript/ProductCenter.js' %}"></script>
+    <script src="{% static 'javascript/Link_dots.js' %}"></script>
+{% endblock %}

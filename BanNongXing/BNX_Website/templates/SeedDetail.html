@@ -1,0 +1,202 @@
+{# 引用通用页面模板 #}
+{% extends 'PageHeadAndTailCommon.html' %}
+{# 加载静态资源库 #}
+{% load staticfiles %}
+
+{# head链接JS文件 #}
+{% block head-js %}
+
+{% endblock %}
+
+{# 链接CSS文件 #}
+{% block css %}
+<link href="{% static 'css/seedDetail.css' %}" rel="stylesheet">
+{% endblock %}
+
+{# 页面标题 #}
+{% block PageTitle %}
+作物生长数据
+{% endblock %}
+
+{# 浮动栏 #}
+{% block fixed %}
+
+{% endblock %}
+
+{# 头部栏 #}
+{% block header %}
+
+{% endblock %}
+
+{# 内容栏 #}
+{% block content %}
+<div class="container clearfix" id="Total_box">
+    <div class="col-xs-8 float-left seed_main">
+        <h3 class="hot">种子图片</h3>
+        <div class="seed_img_wrap">
+            <ul>
+                {% for img in imgList %}
+                <li class="scope"><img src="http://vsi.cau.edu.cn{{ img }}" alt="种子图片"></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <table class="seed_detail_table">
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="parent_table">
+                            <table width="100%">
+                                <tbody>
+                                    <tr class="c2">
+                                        <td class="cap" style="width:20%">
+                                            中文科名
+                                        </td>
+                                        <td>
+                                            {{ currentSeed.Mesogastropoda }}
+                                        </td>
+                                        <td class="cap">
+                                            中文属名
+                                        </td>
+                                        <td>
+                                            {{ currentSeed.Littorinidae }}
+                                        </td>
+                                        <td class="cap">
+                                            别名
+                                        </td>
+                                        <td>
+                                            {{ currentSeed.anotherName }}
+                                        </td>
+                                    </tr>
+                                    <tr class="c1">
+                                        <td class="cap">
+                                            种子形态
+                                        </td>
+                                        <td colspan="7">
+                                            {{ currentSeed.seedMorphological }}
+                                        </td>
+                                    </tr>
+                                    <tr class="c2">
+                                        <td class="cap">
+                                            形态特征
+                                        </td>
+                                        <td colspan="7">
+                                            {{ currentSeed.morphological }}
+                                        </td>
+                                    </tr>
+                                    <tr class="c1">
+                                        <td class="cap">
+                                            地理分布 及基本生长环境
+                                        </td>
+                                        <td colspan="7">
+                                            {{ currentSeed.Geographic }}
+                                        </td>
+                                    </tr>
+                                    <tr class="c2">
+                                        <td class="cap">
+                                            食用部位
+                                        </td>
+                                        <td colspan="5">
+                                            {{ currentSeed.EdibleParts }}
+                                        </td>
+                                    </tr>
+                                    <tr class="c1">
+                                        <td class="cap">
+                                            制种技术
+                                        </td>
+                                        <td colspan="5">
+                                            {{ currentSeed.seedProductionTechnique }}
+                                        </td>
+                                    </tr>
+                                    <tr class="c2">
+                                        <td class="cap">
+                                            萌发条件
+                                        </td>
+                                        <td colspan="5">
+                                            {{ currentSeed.germination }}
+                                        </td>
+                                    </tr>
+                                    <tr class="c1">
+                                        <td class="cap">
+                                            干燥条件
+                                        </td>
+                                        <td colspan="5">
+                                            {{ currentSeed.drying }}
+                                        </td>
+                                    </tr>
+                                    <tr class="c2">
+                                        <td class="cap">
+                                            储藏和寿命
+                                        </td>
+                                        <td colspan="5">
+                                            {{ currentSeed.StorageAndLife }}
+                                        </td>
+                                    </tr>
+                                    <tr class="c1">
+                                        <td class="cap">
+                                            加工方法
+                                        </td>
+                                        <td colspan="5">
+                                            {{ currentSeed.processingMethod }}
+                                        </td>
+                                    </tr>
+                                    <tr class="c2">
+                                        <td class="cap">
+                                            质量检测和简易鉴别方法
+                                        </td>
+                                        <td colspan="5">
+                                            {{ currentSeed.identificationMethods }}
+                                        </td>
+                                    </tr>
+                                    <tr class="c1">
+                                        <td class="cap">
+                                            播种期、生长期
+                                        </td>
+                                        <td colspan="5">
+                                            {{ currentSeed.SowingPeriod }}
+                                        </td>
+                                    </tr>
+                                    <tr class="c2">
+                                        <td class="cap">
+                                            栽培措施
+                                        </td>
+                                        <td colspan="5">
+                                            {{ currentSeed.cultivationMeasure }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-xs-4 float-right" id="Side_box">
+        <h3 class="hot">热点作物</h3>
+        {% for seed in seedList %}
+        <div class="side_news">
+            <div class="side_news_img_box">
+                <a href="{% url 'crop_seed_id' seed.id %}">
+                    <img alt="种子图片" src="http://vsi.cau.edu.cn{{ seed.photo }}" class="col-12">
+                </a>
+            </div>
+            <div class="side_news_text_box">
+                <p><a href="{% url 'crop_seed_id' seed.id %}">{{ seed.anotherName | truncatechars:10 }}</a></p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="scope_img">
+    <div class="scope_img_wrap">
+        <span class="close">×</span>
+        <img alt="种子图片">
+    </div>
+</div>
+<div class="gray"></div>
+{% endblock %}
+
+{# 尾连接链接JS文件 #}
+{% block foot-js %}
+<script src="{% static 'javascript/SeedDetail.js' %}"></script>
+{% endblock %}

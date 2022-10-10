@@ -1,0 +1,237 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* 通用元素样式 */
+body{
+	background: url("../images/wide_field.jpg");		/*图片以后换一个色调深点的*/
+	background-size: cover;
+}
+
+h1,h2,h3,h4,p{
+	cursor: default;
+}
+
+/* Fixed元素样式 */
+
+
+/* 主体元素样式 */
+#my_subject h1{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+#FormBox{
+	border-radius: 15px;
+	background-color: rgba(129,129,129,0.50);
+	color: rgba(255,255,255,1.00);
+	border: 2px solid rgba(255,255,255,1.00);
+	transition: 0.5s;
+}
+#FormBox:hover{
+	border: 2px solid rgba(101,249,84,1.00);
+	background-color: rgba(129,129,129,0.80);
+}
+
+/* 表单栏标题栏样式 */
+#form_title_box h3{
+	margin: 10px 0;
+}
+#form_title_box p{
+	display: block;
+	margin-bottom: 10px;
+}
+/* 表单单行文本域样式 */
+.my_form_text{
+	position: relative;
+	margin: 35px 20px;
+	border-bottom: 2px solid rgba(241,241,241,1.00);
+}
+.my_form_text label{
+	font-size: 20px;
+}
+.my_form_text label::before{
+	content: attr(my_form_attribute);
+	position: absolute;
+	top: 50%;
+	color: #adadad;
+	transform: translateY(-50%);
+	transition: 0.5s;
+}
+.my_form_text label::after{
+	content: '';
+	position: absolute;
+	top: 40px;
+	right: 0;
+	width: 0%;
+	height: 2px;
+	background: rgba(101,249,84,1.00);
+	transition: 0.5s;
+}
+.my_form_text input{
+	border: none;
+	outline: none;
+	background: none;
+	width: 100%;
+	color: rgba(140,253,255,1.00);
+	font-size: 20px;
+}
+.form_text_action + label::before{
+	top: -10px;
+	color: rgba(255,255,255,1.00);
+}
+.form_text_action + label::after{
+	width: 100%;
+}
+
+/* 表单单选栏样式 */
+@media screen and (min-width: 768px) {
+	#form_single_selection_single label{
+		bottom: 25px;
+	}
+} 
+#form_single_selection_single label{
+	font-size: 20px;
+	transition: 0.5s;
+}
+#form_single_selection_single label:hover{
+	color: rgba(140,253,255,1.00);
+}
+#form_single_selection_single input{
+/*
+	去除这个则将不再使用默认样式
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+*/
+	outline: none;
+	width: 30px;
+	height: 30px;
+	margin: 20px 0px;
+	vertical-align: text-bottom;
+	margin-right: 0.1rem;
+	transition: 0.5s;
+}
+#form_single_selection_single input::after{
+	display: block;
+	content: "";
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background: none;
+	border: 3px solid rgba(0,155,255,1.00);
+	transition: 0.5s;
+}
+#form_single_selection_single input:hover::after{
+	background: radial-gradient(rgba(0,155,255,1.00),rgba(255,255,255,0.00));
+	border: 3px solid #fff;
+	transition: 0.5s;
+}
+#form_single_selection_single input:checked::after{
+/* 这个选择器可以直接修改按钮点击后的样式，不用通过JS修改	*/
+	background: radial-gradient(rgba(0,155,255,1.00),rgba(255,255,255,0.00));
+	border: 3px solid #fff;
+	transition: 0.5s;
+}
+
+/* 表单复选栏样式 */
+@media screen and (min-width: 768px) {
+	#form_single_selection_plural label{
+		bottom: 25px;
+	}
+} 
+#form_single_selection_plural label{
+	font-size: 20px;
+	transition: 0.5s;
+}
+#form_single_selection_plural label:hover{
+	color: rgba(140,253,255,1.00);
+}
+#form_single_selection_plural input{
+/*
+	去除这个则将不再使用默认样式
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+*/
+	outline: none;
+	width: 30px;
+	height: 30px;
+	margin: 20px 0px;
+	vertical-align: text-bottom;
+	margin-right: 0.1rem;
+	transition: 0.5s;
+}
+#form_single_selection_plural input::after{
+	display: block;
+	content: "";
+	width: 30px;
+	height: 30px;
+	background: none;
+	border: 3px solid rgba(0,155,255,1.00);
+	transition: 0.5s;
+}
+#form_single_selection_plural input:hover::after{
+	background: radial-gradient(rgba(0,155,255,1.00),rgba(255,255,255,0.00));
+	border: 2px solid #fff;
+	transition: 0.5s;
+}
+#form_single_selection_plural input:checked::after{
+/* 这个选择器可以直接修改按钮点击后的样式，不用通过JS修改	*/
+	border: 3px solid rgba(0,155,255,1.00);
+	transition: 0.5s;
+}
+
+/* 表单选择栏样式 */
+#form_select_box select{
+	background: none;
+	width: 100%;
+	margin: 20px 0;
+	border-radius: 15px;
+	border: 2px solid rgba(255,255,255,1.00);
+	color: rgba(144,144,144,1.00);
+	transition: 0.5s;
+}
+#form_select_box select:hover{
+	color: rgba(140,253,255,1.00);
+	border: 2px solid rgba(101,249,84,1.00);
+	transition: none;
+}
+#form_select_box select option{
+	color: rgba(144,144,144,1.00);
+	transition: 0.5s;
+}
+
+
+/* 表单多行输入框样式 */
+.form_textarea_box{
+	margin: 20px 0;
+}
+.form_textarea_box textarea{
+	resize: none;
+	outline: none;
+	background: none;
+	font-size: 20px;
+	height: 160px;
+	border: 2px solid rgba(255,255,255,1.00);
+	border-radius: 15px;
+	color: rgba(140,253,255,1.00);
+	transition: 0.5s;
+}
+.form_textarea_box textarea:hover{
+	border: 2px solid rgba(101,249,84,1.00);
+}
+
+/* 表单按钮栏样式 */
+.my_form_button{
+	border: none;
+	outline: none;
+	border-radius: 10px;
+	background: rgba(79,79,79,1.00);
+	color: rgba(255,255,255,1.00);
+	margin: 10px 50px 10px 0px;
+	transition: 0.5s;
+}
+.my_form_button:hover{
+	background: rgba(70,251,90,1.00);
+	color: rgba(148,110,255,1.00);
+}

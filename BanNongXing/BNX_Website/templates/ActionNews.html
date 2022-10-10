@@ -1,0 +1,171 @@
+{# 引用通用页面模板 #}
+{% extends 'PageHeadAndTailCommon.html' %}
+{# 加载静态资源库 #}
+{% load staticfiles %}
+
+{# head链接JS文件 #}
+{% block head-js %}
+    <!--引入图标库JS插件-->
+    <script src="{% static 'ico/ico_1/font_3lep7ec7p8q/iconfont.js' %}"></script>
+{% endblock %}
+
+{# 链接CSS文件 #}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/ActionNews.css' %}">
+    <!--引入图标库CSS插件-->
+    <link type="text/css" rel="stylesheet" href="{% static 'ico/ico_1/font_3lep7ec7p8q/iconfont.css' %}">
+{% endblock %}
+
+{# 页面标题 #}
+{% block PageTitle %}
+    智慧农业-新闻快报
+{% endblock %}
+
+{# 浮动栏 #}
+{% block fixed %}
+
+{% endblock %}
+
+{# 头部栏 #}
+{% block header %}
+
+{% endblock %}
+
+{# 内容栏 #}
+{% block content %}
+    <div class="container-fluid">
+			<div class="container">
+				<div class="col-12 clearfix">
+					<!--轮播图-->
+					<div class="col-sm-8 col-12 float-left flexslider banner" id="rotation_chart_news_box">
+				    	<div class="b_main">
+				        	<div class="b_m_pic">
+				            	<ul>
+				                	<li>
+				                    	<a>
+				                        	<img src="{% static 'images/Gold_field_wallpaper.jpg' %}" alt="" class="banner_img"><!--这里的宽高是为了占满盒子-->
+				                        </a>
+				                    </li>
+				                    <li>
+				                        <a>
+				                            <img src="{% static 'images/Golden_wheat_with_wood_background.jpg' %}" alt="" class="banner_img">
+				                        </a>
+				                    </li>
+				                    <li>
+				                        <a>
+				                            <img src="{% static 'images/Golden_wind_and_grass_harvest.jpg' %}" alt="" class="banner_img">
+				                        </a>
+				                    </li>
+				                    <li>
+				                        <a>
+				                            <img src="{% static 'images/Grassland.jpg' %}" alt="" class="banner_img">
+				                        </a>
+				                    </li>
+				                    <li>
+				                        <a>
+				                            <img src="{% static 'images/Green_wheat_spike.jpg' %}" alt="" class="banner_img">
+				                        </a>
+				                    </li>
+				                    <li>
+				                        <a>
+				                            <img src="{% static 'images/banner1.jpg' %}" alt="" class="banner_img">
+				                        </a>
+				                    </li>
+				                </ul>
+				            </div>
+				        </div>
+				        <!--小圆点-->
+				        <div class="b_list">
+				        	<ul>
+				            	<li class="l_click"></li>
+				                	<li></li>
+				                    <li></li>
+				                    <li></li>
+				                    <li></li>
+				                    <li></li>
+				            </ul>
+				        </div>
+					</div>
+
+					<div class="col-sm-4 col-12 text-center float-right" id="main_news_box">
+						<div class="d-block" style="padding-top: 10px;">
+							<h3 id="main_news_title">要点新闻</h3>
+						</div><hr>
+
+                        {% for new_type in new_type_list %}
+                            {% for new_list in new_list_list %}
+                                {% if forloop.counter <= 3 %}
+                                    {% for new in new_list %}
+                                        {% if new.new_type == new_type and forloop.counter <= 1%}
+                                            <div class="d-block" style="padding-top: 15px;">
+                                                <h5><a href="{% url 'new_tem' new.pk %}" target="_blank" title="">{{ new.title }}</a></h5>
+                                                <small class="text-muted"><a href="{% url 'new_tem' new.pk %}" target="_blank" title="">{{ new.content | truncatechars:15 | linebreaksbr }}...</a></small>
+                                            </div><br>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+					</div>
+				</div>
+
+
+                <div class="col-12 clearfix">
+                    {% for new_type in new_type_list %}
+                        {% if forloop.counter <= 2 %}
+                                <div class="col-sm-6 col-12 float-left news_box" id="news_box_left_top">
+                                    <h5><span class="iconfont icon-icon-test1 news_title_1"><a href="{% url 'new_type_tem' new_type.pk %}">&#32;{{ new_type }}</a></span></h5>
+                                    <ul>
+                                        {% for new_list in new_list_list %}
+                                            {% if forloop.counter <= 2 %}
+                                                {% for new in new_list %}
+                                                    {% if new.new_type == new_type %}
+                                                        <li class="on_list">
+                                                            <a href="{% url 'new_tem' new.pk %}" target="_blank">{{ new.title }}</a>
+                                                            <span class="iconfont icon-icon-test19 on_ico"></span>
+                                                            <span class="float-right iconfont icon-icon-test3"><small>&#32;{{ new.created_time | date:"Y-m-d" }}</small></span>
+                                                        </li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div class="col-12 clearfix">
+                    {% for new_type in new_type_list %}
+                        {% if forloop.counter > 2 %}
+                                <div class="col-sm-6 col-12 float-left news_box" id="news_box_left_top">
+                                    <h5><span class="iconfont icon-icon-test1 news_title_1"><a href="{% url 'new_type_tem' new_type.pk %}">&#32;{{ new_type }}</a></span></h5>
+                                    <ul>
+                                        {% for new_list in new_list_list %}
+                                            {% if forloop.counter > 2 %}
+                                                {% for new in new_list %}
+                                                    {% if new.new_type == new_type %}
+                                                        <li class="on_list">
+                                                            <a href="{% url 'new_tem' new.pk %}" target="_blank">{{ new.title }}</a>
+                                                            <span class="iconfont icon-icon-test19 on_ico"></span>
+                                                            <span class="float-right iconfont icon-icon-test3"><small>&#32;{{ new.created_time | date:"Y-m-d" }}</small></span>
+                                                        </li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+			</div>
+		</div>
+    <br>
+{% endblock %}
+
+{# 尾连接链接JS文件 #}
+{% block foot-js %}
+    <script src="{% static 'javascript/ActionNews.js' %}"></script>
+{% endblock %}

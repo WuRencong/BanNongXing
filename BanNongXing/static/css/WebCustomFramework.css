@@ -1,0 +1,191 @@
+@charset "utf-8";
+/* CSS Document */
+
+.icon {/* 引入图标库样式 */
+	width: 1em;
+	height: 1em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+}
+
+/* 导航栏分隔区块 */
+.Page_empty_block{
+	height: 50px;
+	clear:both;
+	overflow:hidden;
+	display:block;
+}
+@media screen and (max-width: 993px){
+	.Page_empty_block{
+		height: 38px;
+		clear:both;
+		overflow:hidden;
+		display:block;
+	}
+}
+
+/* 通用元素 */
+li{
+	list-style: none;
+}
+a{
+	transition: all 0.5s linear;
+}
+a:hover{
+	text-decoration: none;
+	transition: all 0.5s linear;
+}
+
+
+.My_a_title_1{
+	text-decoration: none;
+	transition: all 0.3s linear;
+	
+}
+
+.font_size_12{
+	font-size: 12px;
+} 
+.font_size_14{
+	font-size: 14px;
+}
+.font_size_16{
+	font-size: 16px;
+}
+.font_size_18{
+	font-size: 18px;
+}
+.font_size_20{
+	font-size: 20px;
+}
+.font_size_22{
+	font-size: 22px;
+}
+.font_size_24{
+	font-size: 24px;
+}
+.font_size_26{
+	font-size: 26px;
+}
+.font_size_28{
+	font-size: 28px;
+}
+.font_size_30{
+	font-size: 30px;
+}
+.font_size_32{
+	font-size: 32px;
+}
+
+/* Fixed元素 */
+.Fixed{
+	position: fixed;
+	
+}
+
+/* 非Fixed元素 */
+
+/* 导航栏样式 */
+.Nav_List{
+	list-style: none;
+}
+.Nav_List_member{				/*Nav按钮普通样式*/
+	padding: 0 1%;
+	margin: 0 3%;
+	display: inline-block;
+	border-radius: 22px;
+	font-size: 22px;
+	font-weight: bold;
+	transition: all 0.3s linear;
+}
+.Nav_List_member a{
+	text-decoration: none;
+	color: rgba(255,255,255,1.00);
+	transition: all 0.3s linear;
+}
+.Nav_List_member:hover{
+	background-color: rgba(0,130,255,1.00);
+	transition: all 0.3s linear;
+}
+.Nav_List_member_selection{		/*Nav按钮强调样式*/
+	padding: 0 1%;
+	margin: 0 3%;
+	display: inline-block;
+	border-radius: 22px;
+	font-size: 22px;
+	font-weight: bold;
+	transition: all 0.3s linear;
+	background-color: rgba(0,130,255,1.00);	
+}
+.Nav_List_member_selection a{
+	text-decoration: none;
+	font-style: oblique;
+	color: rgba(255,255,255,1.00);
+	transition: all 0.3s linear;
+}
+
+.pc_load input{
+	border: none;
+	outline: none;
+	border-radius: 10px;
+	background: rgba(79,79,79,0.00);
+	color: rgba(79,79,79,1.00);
+	margin: 0px 10px;
+	transition: 0.5s;
+}
+.pc_load input:hover{
+	background: rgba(79,79,79,1.00);
+	color: rgba(255,255,255,1.00);	
+}
+.moble_load{
+	cursor: default;
+}
+.moble_load input{
+	cursor: default;
+	opacity: 0;
+	border-radius: 10px;
+	border: none;
+	outline: none;
+	transition: 0.5s;
+}
+@media screen and (max-width: 993px){
+	.moble_load input{
+		opacity: 1;
+		border-radius: 10px;
+		border: none;
+		outline: none;
+		transition: 0.5s;
+	}
+}
+
+.m_footer{
+	color: rgba(255,255,255,1.00);
+}
+.m_footer a{
+	color: aliceblue;
+	transition: 0.5s;
+}
+.m_footer a:hover{
+	color: aqua;
+}
+.m_footer p{
+	cursor: default;
+}
+.m_footer h4{
+	margin-top: 10px;
+	cursor: default;
+}
+@media screen and (max-width: 768px){
+	.m_footer h5{
+		font-size: 12px;
+	}
+}
+.web_authentication{
+	text-decoration: none;
+	color: rgba(255,255,255,1.00);
+	transition: all 0.3s linear;
+}
+.web_authentication:hover{
+	color: aqua;
+}

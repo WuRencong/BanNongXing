@@ -1,0 +1,127 @@
+{# 引用通用页面模板 #}
+{% extends 'PageHeadAndTailCommon.html' %}
+{# 加载静态资源库 #}
+{% load staticfiles %}
+
+{# head链接JS文件 #}
+{% block head-js %}
+{#    <script src="{% static 'javascript/jquery.ripples-min.js' %}"></script>#}
+{% endblock %}
+
+{# 链接CSS文件 #}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/InformationFeedback.css' %}">
+{% endblock %}
+
+{# 页面标题 #}
+{% block PageTitle %}
+    智慧农业-信息反馈
+{% endblock %}
+
+{# 浮动栏 #}
+{% block fixed %}
+
+{% endblock %}
+
+{# 头部栏 #}
+{% block header %}
+
+{% endblock %}
+
+{# 内容栏 #}
+{% block content %}
+    <div class="container-fluid" id="my_subject">
+        <h1 class="text-center container"> </h1>
+
+        <div class="container" id="FormBox">
+            <div class="col-12" style="top: 30px;" id="form_title_box">
+                <h3 class="text-center text-md-left">反馈您的想法：</h3><br>
+            </div>
+            <form autocomplete="off" method="post" enctype="multipart/form-data" class="col-12" style="padding-bottom: 30px;">
+                {% csrf_token %}
+                <div class="col-12 col-md-8 my_form_text">	<!--单个输入框-->
+                    <input type="text" name="Whether_helps" title="" class="d-block" id="form_text_1" autocomplete="off">
+                    <label for="form_text_1" my_form_attribute="我们设计的方案是否帮助到您：" class="row no-gutters"></label>	<!--for属性填链接到的表单标签id-->
+                </div>
+
+                <div class="col-12 col-md-8 my_form_text">	<!--单个输入框-->
+                    <input type="text" name="Detailed" title="" class="d-block" id="form_text_2" autocomplete="off">
+                    <label for="form_text_2" my_form_attribute="我们设计的方案是否详细：" class="row no-gutters"></label>
+                </div>
+
+                <div class="col-12 col-md-8 my_form_text">	<!--单个输入框-->
+                    <input type="text" name="Humanize" title="" class="d-block" id="form_text_3" autocomplete="off">
+                    <label for="form_text_3" my_form_attribute="网站设计是否足够人性化：" class="row no-gutters"></label>
+                </div>
+
+                <div class="col-12 col-md-8 my_form_text">	<!--单个输入框-->
+                    <input type="text" name="Provide" title="" class="d-block" id="form_text_4" autocomplete="off">
+                    <label for="form_text_4" my_form_attribute="网站还需要提供什么服务功能：" class="row no-gutters"></label>
+                </div>
+
+                <div class="col-12" id="form_single_selection_group">	<!--多个选则栏-->
+                    <div class="d-inline row form_single_selection" id="form_single_selection_single">
+                        <h4>规划方案是否符合当地种植环境：</h4>
+                        <input type="radio" name="the_same_name" title="" class="col-2 row d-inline" id="form_single_selection_single_1">
+                        <label for="form_single_selection_single_1" class="col-md-2 col-12 row d-md-inline">十分符合</label>	<!--for属性填链接到的表单标签id-->
+                        <input type="radio" name="the_same_name" title="" class="col-2 row d-inline" id="form_single_selection_single_2">
+                        <label for="form_single_selection_single_2" class="col-md-2 col-12 row d-md-inline">较为符合</label>
+                        <input type="radio" name="the_same_name" title="" class="col-2 row d-inline" id="form_single_selection_single_3">
+                        <label for="form_single_selection_single_3" class="col-md-2 col-12 row d-md-inline">不够符合</label>
+                    </div>
+
+                    <div class="d-inline row form_single_selection" id="form_single_selection_plural">
+                        <h4>您认为我们的规划方案还有什么地方需要加强：</h4>
+                        <input type="checkbox" name="" title="" class="col-2 row d-inline" id="form_single_selection_plural_1">
+                        <label for="form_single_selection_plural_1" class="col-md-2 col-12 row d-md-inline">数据精确度</label>
+                        <input type="checkbox" name="" title="" class="col-2 row d-inline" id="form_single_selection_plural_2">
+                        <label for="form_single_selection_plural_2" class="col-md-2 col-12 row d-md-inline">规划作物种类</label>
+                        <input type="checkbox" name="" title="" class="col-2 row d-inline" id="form_single_selection_plural_3">
+                        <label for="form_single_selection_plural_3" class="col-md-2 col-12 row d-md-inline">更多方面的农业规划</label>
+                    </div>
+
+                    <div class="" id="form_select_box">	<!--一个选择下拉菜单-->
+                        <h4>请给我们的服务评分</h4>
+                        <select class="col-12 col-md-3" name="">
+                            <option>5分</option>
+                            <option>4分</option>
+                            <option>3分</option>
+                            <option>2分</option>
+                            <option>1分</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-12 form_textarea_box">	<!--一个多行输入框-->
+                    <h4>提交内容标题：</h4>
+                    <textarea name="Other" placeholder="在这里填下您的一些其他想法" title="" class="d-block col-md-8 col-12" id="form_textarea"></textarea>
+                </div>
+
+<!--
+                <div class="col-12">	文件选择框
+                    <label for="form_file" style="cursor: pointer;	margin: 20px 0;">文件：</label>
+                    <input type="file" name="" title="" id="form_file" style="cursor: pointer;	margin: 20px 0;">
+                </div>
+-->
+
+{#                <div class="col-12 col-md-8 my_form_text">	<!--验证码-->#}
+{#                    <input type="text" name="" title="" class="d-block" id="form_verification_text" autocomplete="off">#}
+{#                    <label for="form_verification_text" my_form_attribute="验证码：" class="row no-gutters"></label>#}
+{#                </div>#}
+{#                <img id="checkCodeImg" src="http://www.jxlnhm.com/data/include/imagecode.php?act=verifycode" onClick="changCode('http://www.jxlnhm.com/')" alt="若没显示验证码请刷新页面" style="margin: 0 20px 30px">	<!--这里的验证码要对接后端进行点击刷新-->#}
+
+                <div class="col-12 clearfix" id="form_button_group">	<!--按钮组-->
+                    <input type="submit" name="" class="my_form_button col-12 col-md-2 float-md-left d-block" value="提交" id="form_submit">
+                    <input type="reset" name="" class="my_form_button col-12 col-md-2 float-md-right d-block" value="重置" id="form_reset">
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <br>
+{% endblock %}
+
+{# 尾连接链接JS文件 #}
+{% block foot-js %}
+    <script src="{% static 'javascript/InformationFeedback.js' %}"></script>
+{% endblock %}

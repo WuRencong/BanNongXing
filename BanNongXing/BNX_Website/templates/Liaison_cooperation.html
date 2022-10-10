@@ -1,0 +1,95 @@
+{# 引用通用页面模板 #}
+{% extends 'PageHeadAndTailCommon.html' %}
+{# 加载静态资源库 #}
+{% load staticfiles %}
+
+{# head链接JS文件 #}
+{% block head-js %}
+
+{% endblock %}
+
+{# 链接CSS文件 #}
+{% block css %}
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Cache" content="no-cache">
+    <link rel="stylesheet" href="{% static 'css/Liaison_cooperation.css' %}">
+{% endblock %}
+
+{# 页面标题 #}
+{% block PageTitle %}
+    智慧农业-联系合作
+{% endblock %}
+
+{# 浮动栏 #}
+{% block fixed %}
+
+{% endblock %}
+
+{# 头部栏 #}
+{% block header %}
+
+{% endblock %}
+
+{# 内容栏 #}
+{% block content %}
+    <div id="Contact" class="container clearfix">
+        <div class="col-md-6 col-12 float-left text-md-left company_text">
+            <h3>Hi,are you ready?</h3>
+            <h3>那就与我们取得联系吧</h3>
+            <p>
+                有农业规划方面的困难？想和我们谈谈吗？
+            </p>
+            <p>
+                您可以填写旁边的表格，让我们了解到您需求,我们将会尽快与你取得联系
+            </p>
+            <p>
+                当然也欢迎您给我们写信或是打电话，这有助于让我们更加了解您的需求
+            </p>
+            <h2>禄埠网络科技有限公司-智慧农业&ensp;<small></small></h2>
+            <p>商务地址：江西省南昌市东华理工大学广兰校区大学生孵化园B109</p>
+            <p>联系电话：15770766609</p>
+            <p>联系邮箱：wurencong@foxmail.com</p>
+        </div>
+        <form autocomplete="off" method="post" enctype="multipart/form-data" class="col-md-6 col-12 float-right text-center text_message">
+            {% csrf_token %}
+            <h3>填下您的项目信息</h3>
+            <div class="text_box">
+                <label for="form_text_1" my_form_attribute="您的姓名" class="d-inline control-label"></label>
+                <input type="text" name="User_name" title="" class="col-12" id="form_text_1" autocomplete="off" placeholder="您的姓名">
+            </div>
+            <div class="text_box">
+                <label for="form_text_2" my_form_attribute="单位名称" class="d-inline control-label"></label>
+                <input type="text" name="Company_name" title="" class="col-12" id="form_text_2" autocomplete="off" placeholder="单位名称">
+            </div>
+            <div class="text_box">
+                <label for="form_text_3" my_form_attribute="联系电话" class="d-inline control-label"></label>
+                <input type="text" name="Telephone" title="" class="col-12" id="form_text_3" autocomplete="off" placeholder="联系电话">
+            </div>
+            <div class="text_box">
+                <label for="form_text_4" my_form_attribute="项目分类" class="d-inline control-label"></label>
+                <input type="text" name="Types_section" title="" class="col-12" id="form_text_4" autocomplete="off" placeholder="项目分类">
+            </div>
+            <div class="text_box">
+                <textarea autocomplete="off" name="Project_description" placeholder="项目描述" title="" class="d-block col-12" id="form_textarea"></textarea>
+            </div>
+            <input type="submit" class="my_form_button col-12 d-block" value="提交" id="form_submit">
+        </form>
+    </div>
+    <hr style="background: rgba(150,150,150,1.00);" class="container">
+    <div id="Company_announcement" class="container">
+			<h2 class="text-center">公司公告</h2>
+			<p>&#12288;</p>
+			<h4 id="Contact_address">&ensp;禄埠网络科技有限公司联系地址：<a href="map">&nbsp;点击查看</a></h4>
+		</div>
+{% endblock %}
+
+{# 尾连接链接JS文件 #}
+{% block foot-js %}
+    <script type="text/javascript">
+        $('#form_submit').click(function () {
+            alert('表单提交成功')
+        });
+    </script>
+{% endblock %}

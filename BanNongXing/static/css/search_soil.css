@@ -1,0 +1,97 @@
+body {
+  background: url("../images/white_background1.png");
+}
+
+.main {
+    min-height:400px;
+    height:auto;
+}
+
+/* 主题标题 */
+.model-details-title {
+  position: relative;
+  padding: 15px 0px;
+  font-size: 18px;
+  border-bottom: 1px #005197 solid; /* 底部添加蓝色边框 */
+  color: #005197;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.search_by_global {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+  bottom: 0;
+  padding: 10px 0;
+}
+
+.search_by_global input {
+  width: 220px;
+  height: 21px;
+  margin-top: -1px;
+  margin-right: 5px;
+  padding: 5px 0 5px 5px;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  color: #a0a0a0;
+  font-size: 16px;
+  box-sizing: content-box;
+}
+
+.search_by_global .search_btn {
+  height: 35px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  line-height: 24px;
+}
+
+.search_by_global input:focus {
+  /* 按钮点击后的样式 */
+  outline: none; /* 去除outline */
+  box-shadow: 0 0 1px 2px #007bff; /* 增加盒子阴影 */
+}
+
+.search_by_global .search_btn:focus {
+  /* 按钮点击后的样式 */
+  outline: none; /* 去除outline */
+  box-shadow: 0 0 1px 2px #007bff; /* 增加盒子阴影 */
+}
+
+.soil_item {
+  width: 100%;
+  display: inline-block;
+  margin-top: 1.5rem;
+}
+
+/* 文字段落 */
+.model-details p {
+  line-height: 30px;
+  text-indent: 2em;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+/* 主体图像 */
+
+.model-details img {
+  margin: 8px auto;
+}
+
+.model-details.row-4 {
+  margin-top: 20px;
+}
+
+.model-details.row-5 {
+  border: none;
+}
+
+.soil-model span {
+  float: right;
+}
