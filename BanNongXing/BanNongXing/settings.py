@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'blog_server',
         'USER': 'root',
-        'PASSWORD': '123456',
+        'PASSWORD': 'wrccrw',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
@@ -160,3 +160,4 @@ HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor' """
 # CORS_ORIGIN_ALLOW_ALL = True
 # #允许所有的请求头
 # CORS_ALLOW_HEADERS = ('*')
+#hello
